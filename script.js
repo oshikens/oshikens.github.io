@@ -121,8 +121,8 @@ function showProfile(id, students) {
 function showResearch(id, imgName, title, description) {
 		document.getElementById(id).innerHTML = `
       <div class="flex flex-col bg-white rounded shadow">
-	      <img class="w-full h-32 object-cover rounded-t" src="img/` + imgName `">
-    	  <div class="flex flex-col p-4 w-full h-full">
+	      <img class="w-full h-32 object-cover rounded-t" src="img/` + imgName + `">
+    	  <div class="flex flex-col p-4 w-full h-full lg:h-80">
       	  <h3 class="text-xl lg:text-3xl font-bold">` + title + `</h3>
         	<p class="pt-4 mt-auto">` + description + `</p>
 	      </div>
