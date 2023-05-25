@@ -65,15 +65,17 @@ function showFooter() {
 		var year = new Date().getFullYear();
 		document.getElementById("footer").innerHTML = `
 		<footer>
-		  <div class="bg-gray-100 p-5 text-gray-500 text-center">
-	      <p>〒432-8011</p>
-	      <p>静岡大学情報学部</p>
-	      <p>静岡県浜松市中区城北3-5-1</p>
-				<br>
-	      <p>学生部屋: 情報学部2号館6階J2601号室</p>
-	      <p>教員部屋: 情報学部2号館3階J2311号室</p>
-				<br>
+		  <div class="flex flex-col lg:flex-row items-center bg-teal-800 p-5 text-white">
 				<p>©` + year + ` 金鎭赫研究室</p>
+				<br>
+				<div class="flex flex-col lg:ml-auto lg:items-end items-center">
+		      <p>〒432-8011</p>
+		      <p>静岡大学情報学部</p>
+		      <p>静岡県浜松市中区城北3-5-1</p>
+					<br>
+		      <p>学生部屋: 情報学部2号館6階J2601号室</p>
+		      <p>教員部屋: 情報学部2号館3階J2311号室</p>
+			  </div>
 		  </div>
 		</footer>
 `;
@@ -81,7 +83,7 @@ function showFooter() {
 
 function showHeader() {
 		document.getElementById("header").innerHTML = `
-		<header class="bg-gray-100 text-gray-600">
+		<header class="bg-teal-50">
 		  <div class="flex flex-col flex-wrap md:flex-row items-center p-5">
 		    <a class="flex items-center mb-4 md:mb-0 text-center" href="/index.html">
 					<p>静岡大学情報学部行動情報学科</p>
@@ -89,10 +91,10 @@ function showHeader() {
 		      <span class="ml-3 text-xl">金鎭赫研究室</span>
 		    </a>
 	  	  <nav class="md:ml-auto flex flex-wrap justify-center text-gray-900">
-		      <a class="mr-5 hover:text-teal-500" href="/about.html">About</a>
-		      <a class="mr-5 hover:text-teal-500" href="/news.html">News</a>
-		      <a class="mr-5 hover:text-teal-500" href="/laboratory.html">Laboratory</a>
-		      <a class="mr-5 hover:text-teal-500" href="/publication.html">Publication</a>
+		      <a class="mr-5 hover:border-b hover:border-teal-600 hover:text-teal-600" href="/about.html">About</a>
+		      <a class="mr-5 hover:border-b hover:border-teal-600 hover:text-teal-600" href="/news.html">News</a>
+		      <a class="mr-5 hover:border-b hover:border-teal-600 hover:text-teal-600" href="/laboratory.html">Laboratory</a>
+		      <a class="mr-5 hover:border-b hover:border-teal-600 hover:text-teal-600" href="/publication.html">Publication</a>
 		    </nav>
 		  </div>
 		</header>
@@ -119,6 +121,28 @@ function showImgAndSentence(id, rowOrder, title, explanation, imgName) {
 `;
 }
 
+function showNews(count) {
+		if(count == undefined) {
+				count = news.length;
+		}
+
+		for(let i=0;i<count;i++) {
+				document.getElementById("news").innerHTML += `
+			<div class="mb-4">
+			  <a href="news/` + news[i][0] + `.html" class="flex flex-col md:flex-row md:h-28 gap-4 rounded hover:bg-slate-300 hover:bg-opacity-50 transition-all ease-in-out duration-150">
+	 			<img class="w-full md:w-40 h-28 md:h-auto object-cover rounded-t md:rounded-tr-none md:rounded-l" src="img/lab.jpg">
+		    <div class="px-4 pb-4 md:p-4 w-full">
+		      <div class="flex flex-col-reverse">
+		        <div class="text-lg lg:text-2xl font-bold">` + news[i][1] + `</div>
+			        <span class="text-sm text-slate-600">` + news[i][2] + `</span>
+				      </div>
+				      <p class="pt-2">` + news[i][3] + `</p>
+				    </div>
+					  </a>
+					</div>`;
+		}
+}
+
 function showNewsHeading(title, date, contents) {
 		document.getElementById("news").innerHTML = `
     <div class="lg:px-64 p-6">
@@ -143,26 +167,6 @@ function showNewsHeading(title, date, contents) {
       </div>
     </div>
 `;
-}
-
-function showNews(count) {
-		if(count == undefined) {
-				count = news.length;
-		}
-
-		for(let i=0;i<count;i++) {
-				document.getElementById("news").innerHTML += `
-		  <a href="news/` + news[i][0] + `.html" class="flex flex-col md:flex-row md:h-28 gap-4 rounded hover:bg-slate-300 hover:bg-opacity-50 transition-all ease-in-out duration-150">
- 			<img class="w-full md:w-40 h-28 md:h-auto object-cover rounded-t md:rounded-tr-none md:rounded-l" src="img/lab.jpg">
-	    <div class="px-4 pb-4 md:p-4 w-full">
-	      <div class="flex flex-col-reverse">
-	        <div class="text-lg lg:text-2xl font-bold">` + news[i][1] + `</div>
-		        <span class="text-sm text-slate-600">` + news[i][2] + `</span>
-			      </div>
-			      <p class="pt-2">` + news[i][3] + `</p>
-			    </div>
-				  </a>`;
-		}
 }
 
 function showProfile(id, students) {
