@@ -66,10 +66,10 @@ function showHeader() {
 		      <span class="ml-3 text-xl">金鎭赫研究室</span>
 		    </a>
 	  	  <nav class="md:ml-auto flex flex-wrap justify-center text-gray-900">
-		      <a class="mr-5 hover:text-teal-500" href="about.html">About</a>
-		      <a class="mr-5 hover:text-teal-500" href="news.html">News</a>
-		      <a class="mr-5 hover:text-teal-500" href="laboratory.html">Laboratory</a>
-		      <a class="mr-5 hover:text-teal-500" href="publication.html">Publication</a>
+		      <a class="mr-5 hover:text-teal-500" href="/about.html">About</a>
+		      <a class="mr-5 hover:text-teal-500" href="/news.html">News</a>
+		      <a class="mr-5 hover:text-teal-500" href="/laboratory.html">Laboratory</a>
+		      <a class="mr-5 hover:text-teal-500" href="/publication.html">Publication</a>
 		    </nav>
 		  </div>
 		</header>
@@ -88,11 +88,52 @@ function showHeadingLarge(id, title) {
 
 function showImgAndSentence(id, rowOrder, title, explanation, imgName) {
 		document.getElementById(id).innerHTML = `
-      <h2 class="lg:py-6 text-2xl lg:text-4xl font-bold">` + title + `</h2>
+      <h2 class="py-6 text-2xl lg:text-4xl font-bold">` + title + `</h2>
       <div class="flex flex-col lg:` + rowOrder + `">
         <img src="img/` + imgName + `" class="h-auto lg:h-64 lg:mx-6 object-contain lg:object-cover rounded">
-        <p class="my-auto my-6">` + explanation + `</p>
+        <p class="my-6">` + explanation + `</p>
       </div>
+`;
+}
+
+function showNewsHeading(title, date, contents) {
+		document.getElementById("news").innerHTML = `
+    <div class="lg:px-64 p-6">
+      <div class="mb-4 flex flex-row space-x-4 items-center text-sm lg:text-base">
+        <a href="../news.html">News</a>
+        <span>/</span>
+        <span class="text-slate-300">` + title + `</span>
+      </div>
+      <div>
+        <div class="flex flex-col space-y-2 mb-6 lg:mb-12">
+          <h1 class="text-3xl lg:text-5xl font-bold tracking-wide">` + title + `</h1>
+          <span class="flex flex-row items-center gap-2 ml-auto text-xs">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12h5v5h-5v-5m7-9h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 2v2H5V5h14M5 19V9h14v10H5Z"/></svg>
+` + date + `</span>
+        </div>
+
+        <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-20">
+          <div class="lg:col-start-1 lg:col-end-9">
+						` + contents + `
+	        </div>
+        </div>
+      </div>
+    </div>
+`;
+}
+
+function showNewsHref(id, url, title, date, description) {
+		document.getElementById(id).innerHTML = `
+		  <a href="news/` + url + `.html" class="flex flex-col md:flex-row md:h-28 gap-4 rounded hover:bg-slate-300 hover:bg-opacity-50 transition-all ease-in-out duration-150">
+ 			<img class="w-full md:w-40 h-28 md:h-auto object-cover rounded-t md:rounded-tr-none md:rounded-l" src="img/lab.jpg">
+	    <div class="px-4 pb-4 md:p-4 w-full">
+	      <div class="flex flex-col-reverse">
+	        <div class="text-lg lg:text-2xl font-bold">` + title + `</div>
+		        <span class="text-sm text-slate-600">` + date + `</span>
+			      </div>
+			      <p class="pt-2">` + description + `</p>
+			    </div>
+				  </a>
 `;
 }
 

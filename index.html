@@ -18,8 +18,7 @@
 				"lab-2.jpg");
 		</script>
 
-		<section>
-      <div class="lg:px-64 p-6">
+    <div class="lg:px-64 p-6">
       <div class="flex flex-col">
         <h2 class="mb-6 text-2xl lg:text-4xl font-bold">Research</h2>
         <div class="grid lg:grid-cols-3 gap-4">
@@ -52,21 +51,46 @@
 					</script>
         </div>
 	    </div>
-			<a class="mr-5 hover:text-teal-500" href="about.html">詳しく知る→</a>
+			<a class="hover:text-teal-500" href="about.html">詳しく知る→</a>
 
       <div class="flex flex-col">
         <h2 class="mb-6 text-2xl lg:text-4xl font-bold">News</h2>
         <div class="flex flex-col gap-4">
-          <ContentQuery path="news" :only="['title', '_path', 'date', 'description']" :sort="{ date: -1 }" :limit="3">
-            <template #default="{ data }">
-              <NewsCard v-for="d in data" :news="d" />
-            </template>
-          </ContentQuery>
+
+					<div id="23apr"></div>
+					<script>
+						showNewsHref(
+							"23apr",
+							"#",
+							"研究室のページを新しくしました",
+							"2023/04/28",
+							"研究室のページを新しくして情報を追加しました。");
+					</script>
+
+					<div id="23mar"></div>
+					<script>
+						showNewsHref(
+							"23mar",
+							"#",
+							"2022年度卒業生4名が卒業しました",
+							"2023/03/31",
+							"第2期生4名が本研究室から卒業しました。");
+					</script>
+
+					<div id="22dec"></div>
+					<script>
+						showNewsHref(
+							"22dec",
+							"#",
+							"WiNF2022で発表を行いました",
+							"2022/12/17",
+							"院生2名がそれぞれの研究内容を発表しました。");
+					</script>
+
         </div>
-		      <a class="mr-5 hover:text-teal-500" href="news.html">もっと見る→</a>
+		      <a class="hover:text-teal-500" href="news.html">もっと見る→</a>
       </div>
-      </div>
-		</section>
+    </div>
 
 		<div id="footer"></div>
 		<script>showFooter();</script>
