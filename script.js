@@ -1,3 +1,26 @@
+var news = [[["newpage"],
+						["研究室のページを新しくしました"],
+						["2023/04/28"],
+						["研究室のページを新しくして情報を追加しました。"]],
+					
+						[["2022graduation"],
+						["2022年度卒業生4名が卒業しました"],
+						["2023/03/31"],
+						["第2期生4名が本研究室から卒業しました。"]],
+					
+						[["2022winf"],
+						["WiNF2022で発表を行いました"],
+						["2022/12/17"],
+						["院生2名がそれぞれの研究内容を発表しました。"]],
+					
+						[["2022graduation_f"],
+						["2022年度秋期卒業式で2名が卒業しました"],
+						["2022/09/30"],
+						["留学生2名が卒業しました。"]]];
+
+var id = "";
+var key = 0;
+
 function addListChild(id, url, index) {
 		document.getElementById(id).innerHTML = `
       <div class="ml-4 flex flex-row items-center gap-2 hover:underline">
@@ -122,19 +145,24 @@ function showNewsHeading(title, date, contents) {
 `;
 }
 
-function showNewsHref(id, url, title, date, description) {
-		document.getElementById(id).innerHTML = `
-		  <a href="news/` + url + `.html" class="flex flex-col md:flex-row md:h-28 gap-4 rounded hover:bg-slate-300 hover:bg-opacity-50 transition-all ease-in-out duration-150">
+function showNews(count) {
+		if(count == undefined) {
+				count = news.length;
+		}
+
+		for(let i=0;i<count;i++) {
+				document.getElementById("news").innerHTML += `
+		  <a href="news/` + news[i][0] + `.html" class="flex flex-col md:flex-row md:h-28 gap-4 rounded hover:bg-slate-300 hover:bg-opacity-50 transition-all ease-in-out duration-150">
  			<img class="w-full md:w-40 h-28 md:h-auto object-cover rounded-t md:rounded-tr-none md:rounded-l" src="img/lab.jpg">
 	    <div class="px-4 pb-4 md:p-4 w-full">
 	      <div class="flex flex-col-reverse">
-	        <div class="text-lg lg:text-2xl font-bold">` + title + `</div>
-		        <span class="text-sm text-slate-600">` + date + `</span>
+	        <div class="text-lg lg:text-2xl font-bold">` + news[i][1] + `</div>
+		        <span class="text-sm text-slate-600">` + news[i][2] + `</span>
 			      </div>
-			      <p class="pt-2">` + description + `</p>
+			      <p class="pt-2">` + news[i][3] + `</p>
 			    </div>
-				  </a>
-`;
+				  </a>`;
+		}
 }
 
 function showProfile(id, students) {
