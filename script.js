@@ -60,7 +60,7 @@ function showHeader() {
 		document.getElementById("header").innerHTML = `
 		<header class="bg-gray-100 text-gray-600">
 		  <div class="flex flex-col flex-wrap md:flex-row items-center p-5">
-		    <a class="flex items-center mb-4 md:mb-0 text-center" href="~/index.html">
+		    <a class="flex items-center mb-4 md:mb-0 text-center" href="/index.html">
 					<p>静岡大学情報学部行動情報学科</p>
 					<br>
 		      <span class="ml-3 text-xl">金鎭赫研究室</span>
